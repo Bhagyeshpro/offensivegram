@@ -69,7 +69,7 @@ function Header() {
               <HeartIcon className="navBtn" />
 
             <div 
-              onClick={signOut}
+              // onClick={signOut}
             >
 
               <img
