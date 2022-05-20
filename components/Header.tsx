@@ -14,7 +14,7 @@ import { useRecoilState } from 'recoil';
 import { modalState } from "../atoms/modalAtoms"
 
 function Header() {
-  const {data: session} = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   const [open, setOpen] = useRecoilState(modalState)
 
@@ -58,22 +58,26 @@ function Header() {
 
           {session ? (
             <>
-          <div className="relative navBtn">
-            <PaperAirplaneIcon className="navBtn rotate-45" />
-            <div className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">
-              5
+              <div className="relative navBtn">
+                <PaperAirplaneIcon className="navBtn rotate-45" />
+                <div className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">
+                  5
+                </div>
               </div>
-          </div>
-          <UserGroupIcon  className="navBtn" />
-          <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn" />
-          <HeartIcon className="navBtn" />
+              <UserGroupIcon className="navBtn" />
+              <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn" />
+              <HeartIcon className="navBtn" />
 
-          <img
-            onClick={signOut}
-            src={session?.user?.image || "https://miro.medium.com/max/598/0*8or0oFmHDRKnlETg"}
-            alt="profile pic"
-            className="h-9 w-9 cursor-pointer rounded-full"
-          />  
+            <div 
+              onClick={signOut}
+            >
+
+              <img
+                src={session?.user?.image}
+                alt="profile pic"
+                className="h-9 w-9 cursor-pointer rounded-full"
+                />
+                </div>
             </>
 
           ) : (
@@ -81,7 +85,7 @@ function Header() {
               onClick={signIn}
             >Sign In</button>
           )}
-          
+
         </div>
       </div>
     </div>
